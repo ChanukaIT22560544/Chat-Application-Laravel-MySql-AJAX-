@@ -1,0 +1,115 @@
+body {
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  background-color: #76f17c88;
+}
+
+.chat-container {
+  max-width: 800px;
+  max-height: 1000px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #075e54;
+  color: #fff;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+}
+.chat-header .logout-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(41, 161, 51);
+  font-weight: bolder;
+  border-radius: 15px;
+}
+.logout{
+  font-weight: bold;
+  color: #d41616;
+}
+
+.chat-window {
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  background-color: #27a72dad;
+  height: 400px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+/* Date separator styling */
+.date-separator {
+  margin: 15px 0;
+}
+.date-separator .badge {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+/* Message container styles */
+.message {
+  display: flex;
+  margin-bottom: 10px;
+}
+.message.me {
+  justify-content: flex-end;
+  font-weight: bold;
+}
+.message.other {
+  justify-content: flex-start;
+}
+.message .msg-content {
+  max-width: 70%;
+  padding: 1px 5px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+}
+/* Own messages (green bubble) */
+.message.me .msg-content {
+  background-color: #dcf8c6;
+  border-bottom-right-radius: 0;
+}
+/* Messages from others (white bubble) */
+.message.other .msg-content {
+  background-color: #fff;
+  border-top-left-radius: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+/* Timestamp styling */
+.message small {
+  display: block;
+  margin-top: 5px;
+  color: #999;
+  font-size: 11px;
+}
+/* Chat input area */
+.chat-input {
+  border-top: 1px solid #ddd;
+  padding: 10px 15px;
+  background-color: #14d4549a;
+}
+.chat-input .input-group {
+  border-radius: 50px;
+  overflow: hidden;
+}
+.chat-input .form-control {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.chat-input .btn {
+  border: none;
+  background-color: #075e54;
+  color: #fff;
+  border-radius: 0;
+}
+.msg{
+  justify-content: center;
+  padding: 10px;
+}
