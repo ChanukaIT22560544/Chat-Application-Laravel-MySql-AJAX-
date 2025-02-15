@@ -9,12 +9,12 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // Display the login form (homepage)
+    // Display homepage
     public function showLoginForm(){
          return view('login');
     }
 
-    // Process login
+    //  login Process
     public function login(Request $request) {
          $credentials = $request->validate([
               'email' => 'required|email',
@@ -31,12 +31,12 @@ class AuthController extends Controller
          ]);
     }
 
-    // Display the registration form
+    // Display registration form
     public function showRegisterForm(){
          return view('register');
     }
 
-    // Process registration// app/Http/Controllers/AuthController.php
+    // Process registration
 
 public function register(Request $request){
     $data = $request->validate([
