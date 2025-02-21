@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.1-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -10,25 +10,28 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git
 
-# Install PHP extensions
+# Install PHP extensions needed by Laravel
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
-# Install Composer
+# Install Composer from the official image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
+# Set the working directory
 WORKDIR /var/www
 
-# Copy application files
-COPY . /var/www
+# Copy the project files
+COPY . .
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# (Optional) Generate application key if not set via environment variables
-RUN php artisan key:generate
+# Copy the entrypoint script into the image
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
+# Expose the port Laravel will run on
 EXPOSE 8000
 
-# Start the Laravel development server
+# Set the entrypoint and command
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
