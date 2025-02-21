@@ -270,7 +270,7 @@
           
           // Send the message via AJAX
           $.ajax({
-    url: "https://chat-application-laravel-mysql-a-production-469c.up.railway.app//send-message", // Use full URL here
+    url: "https://chat-application-laravel-mysql-a-production-469c.up.railway.app/send-message", // Use full URL here
     method: "POST",
     data: {
         _token: "{{ csrf_token() }}",
