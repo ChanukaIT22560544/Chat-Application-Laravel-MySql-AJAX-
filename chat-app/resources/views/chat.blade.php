@@ -270,16 +270,20 @@
           
           // Send the message via AJAX
           $.ajax({
-              url: "{{ route('send.message') }}",
-              method: "POST",
-              data: {
-                  _token: "{{ csrf_token() }}",
-                  message: message
-              },
-              error: function() {
-                  alert("Error sending message. Please try again.");
-              }
-          });
+    url: "https://chat-application-laravel-mysql-a-production-469c.up.railway.app//send-message", // Use full URL here
+    method: "POST",
+    data: {
+        _token: "{{ csrf_token() }}",
+        message: message
+    },
+    success: function(response) {
+        console.log('Message sent successfully:', response);
+    },
+    error: function(xhr, status, error) {
+        console.log('Error sending message:', error);
+        alert("Error sending message. Please try again.");
+    }
+});
       });
   </script>
 </body>
